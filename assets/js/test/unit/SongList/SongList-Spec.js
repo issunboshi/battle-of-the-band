@@ -11,19 +11,21 @@ describe('SongList', () => {
     })
 
     it('should render a list of songs to the DOM when provided with data', (done) => {
+
         class MyApp extends React.Component {
+
             render() {
+
                 return (
-                    <div>
-                        <SongList />
-                    </div>
+                    <SongList />
                 )
+
             }
         }
 
         React.render(<MyApp />, document.querySelectorAll('.js-song_container')[0]);
 
-        expect($j('li').length).toEqual(1);
+        expect($j('.song_listing__item').length).toEqual(1);
 
         done();
 

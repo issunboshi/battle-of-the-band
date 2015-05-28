@@ -2,7 +2,7 @@
   "jspm": {
     "directories": {
       "baseURL": "js",
-      "packages": "jspm_packages"
+      "packages": "./jspm_packages"
     },
     "configFile": "config.js",
     "dependencies": {
