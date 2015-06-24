@@ -8,7 +8,9 @@ class SongList extends React.Component {
 
         super(props);
 
-        this.state = {songs: {tracks: {track: []}}};
+        this.state = {
+            songs: {tracks: {track: []}},
+        };
 
     }
 
@@ -27,7 +29,7 @@ class SongList extends React.Component {
 
         var songs = this.state.songs.tracks.track.map((song) => {
 
-            return <li className="song_listing__item" key={song.mbid}><Song raw={song} /></li>
+            return <li className="song_listing__item" key={song.mbid + Math.random()}><Song raw={song} /></li>
 
         });
 
