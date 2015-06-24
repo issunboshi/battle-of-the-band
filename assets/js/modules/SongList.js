@@ -1,5 +1,6 @@
 import React from 'react';
 import Song from 'modules/Song';
+import forBand from 'modules/forBand';
 
 class SongList extends React.Component {
 
@@ -7,23 +8,13 @@ class SongList extends React.Component {
 
         super(props);
 
-        this.state = {songs: []};
+        this.state = {songs: {tracks: {track: []}}};
 
     }
 
     componentDidMount() {
 
-        fetch('http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=74df684fe83434197d014cc81be46a7a&format=json')
-        .then((response) => {
-
-            return response.json()
-
-        })
-        .catch((exception) => {
-
-            console.log('parsing failed', exception)
-
-        })
+        forBand()
         .then((songs) => {
 
             this.setState({songs});
@@ -34,7 +25,7 @@ class SongList extends React.Component {
 
     render() {
 
-        var songs = this.state.songs.map((song) => {
+        var songs = this.state.songs.tracks.track.map((song) => {
 
             return <li className="song_listing__item" key={song.mbid}><Song raw={song} /></li>
 

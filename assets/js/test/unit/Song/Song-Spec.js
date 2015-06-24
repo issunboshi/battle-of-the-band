@@ -20,7 +20,7 @@ describe('Song', () => {
 
         React.render(<MyApp />, document.querySelectorAll('.js-song_container')[0]);
 
-        expect($j('.js-song_container h2').text()).toEqual('Take Me to Church');
+        expect($j('.js-song_container h2')).toHaveText('Take Me to Church');
 
         done();
 

@@ -25,7 +25,7 @@ describe('SongList', () => {
 
         React.render(<MyApp />, document.querySelectorAll('.js-song_container')[0]);
 
-        expect($j('.song_listing__item').length).toEqual(1);
+        expect($j('.song_listing__item')).toHaveLength(1);
 
         done();
 
