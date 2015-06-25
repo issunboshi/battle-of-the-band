@@ -9,14 +9,14 @@ class SongList extends React.Component {
         super(props);
 
         this.state = {
-            songs: {tracks: {track: []}},
+            songs: {toptracks: {track: []}},
         };
 
     }
 
     componentDidMount() {
 
-        forBand()
+        forBand('kanye west')
         .then((songs) => {
 
             this.setState({songs});
@@ -27,13 +27,13 @@ class SongList extends React.Component {
 
     render() {
 
-        var songs = this.state.songs.tracks.track.map((song) => {
+        var songs = this.state.songs.toptracks.track.map((song) => {
 
             return <li className="song_listing__item" key={song.mbid + Math.random()}><Song raw={song} /></li>
 
         });
 
-        return <ul className="song_listing">{songs}</ul>
+        return <ol className="song_listing">{songs}</ol>
 
     }
 

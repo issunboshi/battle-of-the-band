@@ -12,20 +12,25 @@ class Song extends React.Component {
     }
 
     handleClick(event) {
-        console.log(this);
-        this.setState({liked: !this.state.liked});
+        this.setState({selected: !this.state.selected});
     }
 
     render () {
 
-        return (
+        if(!this.state.selected) {
+            return (
 
-            <div className="song__wrapper" onClick={this.handleClick.bind(this)}>
-                <h2 className="song__title">{this.props.raw.name}</h2>
-                <h3 className="song__meta_title">{this.props.raw.artist.name}</h3>
-            </div>
+                <div className="song__wrapper" onClick={this.handleClick.bind(this)}>
+                    <h2 className="song__title">{this.props.raw.name}</h2>
+                    <h3 className="song__meta_title">{this.props.raw.artist.name}</h3>
+                </div>
 
-        );
+            );
+        }
+
+        else {
+            return null;
+        }
 
     }
 
