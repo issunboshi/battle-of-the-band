@@ -1,13 +1,13 @@
 import 'fetch';
 import React from 'react';
 
-import SongList from 'modules/SongList';
+import ArtistForm from 'modules/ArtistForm';
 
 class Battle extends React.Component {
     render() {
         return (
             <div>
-                <SongList />
+                <ArtistForm />
             </div>
         )
     }

@@ -1,6 +1,5 @@
 import React from 'react';
 import Song from 'modules/Song';
-import forBand from 'modules/forBand';
 
 class SongList extends React.Component {
 
@@ -9,27 +8,14 @@ class SongList extends React.Component {
         super(props);
 
         this.state = {
-            songs: {toptracks: {track: []}},
         };
-
-    }
-
-    componentDidMount() {
-
-        forBand('kanye west')
-        .then((songs) => {
-
-            this.setState({songs});
-
-        })
-
     }
 
     render() {
 
-        var songs = this.state.songs.toptracks.track.map((song) => {
+        var songs = this.props.raw.toptracks.track.map((song) => {
 
-            return <li className="song_listing__item" key={song.mbid + Math.random()}><Song raw={song} /></li>
+            return <Song raw={song} />
 
         });
 
