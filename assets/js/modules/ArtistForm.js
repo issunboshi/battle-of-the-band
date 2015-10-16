@@ -15,6 +15,8 @@ class ArtistForm extends React.Component {
             songs: {toptracks: {track: []}},
         };
 
+        this.typingTimer;
+
     }
 
     getSongs(artist) {
@@ -27,9 +29,15 @@ class ArtistForm extends React.Component {
     }
 
     handleChange(event) {
-        this.setState({value: event.target.value});
 
-        return this.getSongs(event.target.value);
+        clearTimeout(this.typingTimer);
+
+        this.setState({value: event.target.value});
+        // this.typingTimer = setTimeout(()=> {
+
+        //     return this.getSongs(event.target.value);
+        // }, 1000);
+
     }
 
     render () {
