@@ -1,6 +1,6 @@
 import React from 'react';
 
-import forBand from 'modules/components/forBand';
+import forBand from 'helpers/forBand';
 
 import SongList from 'modules/components/SongList';
 
@@ -23,6 +23,7 @@ class ArtistForm extends React.Component {
 
         forBand(artist)
         .then((songs) => {
+            console.log(songs);
             this.setState({songs});
         })
 

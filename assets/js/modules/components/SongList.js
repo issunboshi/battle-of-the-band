@@ -15,7 +15,6 @@ class SongList extends React.Component {
 
         var songs = this.props.raw.toptracks.track.map((song, index) => {
             return <Song raw={song} />
-
         });
 
         return <ol className="song_listing">{songs}</ol>

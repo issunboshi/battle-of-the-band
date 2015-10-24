@@ -1,5 +1,7 @@
 import React from 'react';
 
+import getRandomInt from 'helpers/getRandomInt';
+
 class Song extends React.Component {
 
     constructor(props) {
@@ -16,9 +18,20 @@ class Song extends React.Component {
     }
 
     render () {
+        let key;
+
+        if (this.props.raw.mbid) {
+            key = this.props.raw.mbid;
+        } else {
+            key = getRandomInt(5, 20000) + '_' + getRandomInt(5, 30700);
+        }
+
+        console.log(key);
+
         if(!this.state.selected) {
+
             return (
-                <li className="song_listing__item" key={this.props.raw.mbid + Math.random()}>
+                <li className="song_listing__item" key={key}>
                     <div className="song__wrapper" onClick={this.handleClick.bind(this)}>
                         <h2 className="song__title">{this.props.raw.name}</h2>
                     </div>
