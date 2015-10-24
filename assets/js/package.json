@@ -1,11 +1,8 @@
 {
   "jspm": {
-    "directories": {
-      "baseURL": "js",
-      "packages": "jspm_packages"
-    },
-    "configFile": "config.js",
+    "directories": {},
     "dependencies": {
+      "events": "npm:events@^1.1.0",
       "fetch": "github:github/fetch@^0.8.2",
       "flux": "npm:flux@^2.1.1",
       "handlebars": "github:components/handlebars.js@^3.0.3",

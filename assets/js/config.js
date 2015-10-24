@@ -19,6 +19,7 @@ System.config({
     "babel": "npm:babel-core@5.4.7",
     "babel-runtime": "npm:babel-runtime@5.4.7",
     "core-js": "npm:core-js@0.9.13",
+    "events": "npm:events@1.1.0",
     "fetch": "github:github/fetch@0.8.2",
     "flux": "npm:flux@2.1.1",
     "lodash": "npm:lodash@3.8.0",
