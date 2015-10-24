@@ -1,8 +1,8 @@
 import React from 'react';
 
-import forBand from 'modules/forBand';
+import forBand from 'modules/components/forBand';
 
-import SongList from 'modules/SongList';
+import SongList from 'modules/components/SongList';
 
 class ArtistForm extends React.Component {
 
@@ -11,7 +11,7 @@ class ArtistForm extends React.Component {
         super(props);
 
         this.state = {
-            value: '',
+            artist: '',
             songs: {toptracks: {track: []}},
         };
 
@@ -32,11 +32,9 @@ class ArtistForm extends React.Component {
 
         clearTimeout(this.typingTimer);
 
-        this.setState({value: event.target.value});
-        // this.typingTimer = setTimeout(()=> {
+        this.setState({artist: event.target.value});
 
-        //     return this.getSongs(event.target.value);
-        // }, 1000);
+        this.typingTimer = setTimeout(()=> this.getSongs(this.state.artist), 1000);
 
     }
 
@@ -46,8 +44,7 @@ class ArtistForm extends React.Component {
             <div>
                 <form>
                     <label htmlFor="artist">El artist</label>
-                    <input type="text" name="artist" id="artist" value={this.state.value} onChange={this.handleChange.bind(this)} />
-                    <button>Go get my songs</button>
+                    <input type="text" name="artist" id="artist" value={this.state.artist} onChange={this.handleChange.bind(this)} />
                 </form>
                 <SongList raw={this.state.songs} />
             </div>

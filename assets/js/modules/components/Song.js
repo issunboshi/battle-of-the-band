@@ -13,11 +13,9 @@ class Song extends React.Component {
 
     handleClick(event) {
         this.setState({selected: !this.state.selected});
-        console.log()
     }
 
     render () {
-        console.log(this.props.raw);
         if(!this.state.selected) {
             return (
                 <li className="song_listing__item" key={this.props.raw.mbid + Math.random()}>

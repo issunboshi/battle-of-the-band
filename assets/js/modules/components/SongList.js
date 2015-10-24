@@ -1,5 +1,5 @@
 import React from 'react';
-import Song from 'modules/Song';
+import Song from 'modules/components/Song';
 
 class SongList extends React.Component {
 
@@ -13,8 +13,7 @@ class SongList extends React.Component {
 
     render() {
 
-        var songs = this.props.raw.toptracks.track.map((song) => {
-
+        var songs = this.props.raw.toptracks.track.map((song, index) => {
             return <Song raw={song} />
 
         });

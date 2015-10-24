@@ -2,11 +2,12 @@
   "jspm": {
     "directories": {
       "baseURL": "js",
-      "packages": "./jspm_packages"
+      "packages": "jspm_packages"
     },
     "configFile": "config.js",
     "dependencies": {
       "fetch": "github:github/fetch@^0.8.2",
+      "flux": "npm:flux@^2.1.1",
       "handlebars": "github:components/handlebars.js@^3.0.3",
       "jeromegn/Backbone.localStorage": "github:jeromegn/Backbone.localStorage@^1.1.16",
       "lodash": "npm:lodash@^3.8.0",

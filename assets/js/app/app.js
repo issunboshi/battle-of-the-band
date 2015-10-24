@@ -1,7 +1,7 @@
 import 'fetch';
 import React from 'react';
 
-import ArtistForm from 'modules/ArtistForm';
+import ArtistForm from 'modules/components/ArtistForm';
 
 class Battle extends React.Component {
     render() {
