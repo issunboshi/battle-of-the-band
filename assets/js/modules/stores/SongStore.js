@@ -5,11 +5,14 @@ import SongConstants from 'modules/Constants/SongConstants';
 
 class SongStore extends Events.EventEmitter {
     constructor () {
+
+        super();
+
         this.songs = {};
         this.CHANGE_EVENT = 'change';
     }
 
-    create(object) {
+    create (object) {
         // Using the current timestamp in place of a real id.
         var id = Date.now();
 
@@ -19,7 +22,7 @@ class SongStore extends Events.EventEmitter {
         };
     }
 
-    destroy(id) {
+    destroy (id) {
         delete this.songs[id];
     }
 

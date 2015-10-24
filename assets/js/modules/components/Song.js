@@ -26,8 +26,6 @@ class Song extends React.Component {
             key = getRandomInt(5, 20000) + '_' + getRandomInt(5, 30700);
         }
 
-        console.log(key);
-
         if(!this.state.selected) {
 
             return (

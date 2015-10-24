@@ -1,4 +1,4 @@
-import Dispatcher from 'modules/Dispatcher';
+import Dispatcher from 'modules/dispatcher/Dispatcher';
 
 class AppDispatcher extends Dispatcher {
 

@@ -23,7 +23,6 @@ class ArtistForm extends React.Component {
 
         forBand(artist)
         .then((songs) => {
-            console.log(songs);
             this.setState({songs});
         })
 

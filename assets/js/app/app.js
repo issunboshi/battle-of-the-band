@@ -1,16 +1,17 @@
 import 'fetch';
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-import ArtistForm from 'modules/components/ArtistForm';
+import BattleApp from 'modules/components/BattleApp';
 
 class Battle extends React.Component {
     render() {
         return (
             <div>
-                <ArtistForm />
+                <BattleApp />
             </div>
         )
     }
 }
 
-React.render(<Battle />, document.querySelectorAll('.js-song_off')[0]);
+ReactDOM.render(<Battle />, document.querySelectorAll('.js-song_off')[0]);

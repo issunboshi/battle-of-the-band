@@ -9,6 +9,7 @@
       "jeromegn/Backbone.localStorage": "github:jeromegn/Backbone.localStorage@^1.1.16",
       "lodash": "npm:lodash@^3.8.0",
       "react": "npm:react@^0.14.0-alpha2",
+      "react-dom": "npm:react-dom@^0.14.0",
       "velesin/jasmine-jquery": "github:velesin/jasmine-jquery@^2.1.0"
     },
     "devDependencies": {
