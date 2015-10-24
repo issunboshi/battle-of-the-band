@@ -11,23 +11,21 @@ class BattleApp extends React.Component {
 
         this.Songs = new SongStore();
 
-        return (
-            this.getSongState()
-        )
+        this.state = {
+            songs: this.getSongState()
+        }
     }
 
     getSongState() {
-        return {
-            allSongs: this.Songs.getAll()
-        };
+        return this.Songs.getAll();
     }
 
     componentDidMount () {
-        SongStore.addChangeListener(this.handleChange);
+        this.Songs.addChangeListener(this.handleChange);
     }
 
     componentWillUnmount () {
-        SongStore.removeChangeListener(this.handleChange);
+        this.Songs.removeChangeListener(this.handleChange);
     }
 
     handleChange () {
@@ -36,7 +34,7 @@ class BattleApp extends React.Component {
 
     render () {
         return (
-            <ArtistForm allSongs={this.state.Songs} />
+            <ArtistForm allSongs={this.state.songs} />
         )
     }
 }

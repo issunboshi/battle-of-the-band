@@ -13,7 +13,7 @@ class Song extends React.Component {
 
     }
 
-    handleClick(event) {
+    handleSelection(event) {
         this.setState({selected: !this.state.selected});
     }
 
@@ -30,7 +30,7 @@ class Song extends React.Component {
 
             return (
                 <li className="song_listing__item" key={key}>
-                    <div className="song__wrapper" onClick={this.handleClick.bind(this)}>
+                    <div className="song__wrapper" onClick={this.handleSelection.bind(this)}>
                         <h2 className="song__title">{this.props.raw.name}</h2>
                     </div>
                 </li>
