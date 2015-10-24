@@ -1,6 +1,6 @@
-import Dispatcher from 'modules/dispatcher/Dispatcher';
+import flux from 'flux';
 
-class AppDispatcher extends Dispatcher {
+class AppDispatcher extends flux.Dispatcher {
 
     /**
     * A bridge function between the views and the dispatcher, marking the action

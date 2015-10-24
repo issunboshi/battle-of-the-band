@@ -29,12 +29,12 @@ class BattleApp extends React.Component {
     }
 
     handleChange () {
-        this.setState(this.getTodoState());
+        this.setState(this.getSongState());
     }
 
     render () {
         return (
-            <ArtistForm allSongs={this.state.songs} />
+            <ArtistForm allSongs={this.state.songs} selectedSongs={this.state.songs} unSelectedSongs={this.state.songs} />
         )
     }
 }

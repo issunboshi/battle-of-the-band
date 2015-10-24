@@ -57,14 +57,14 @@ class SongStore extends Events.EventEmitter {
                 case SongConstants.SONG_CREATE:
                     text = action.text.trim();
                     if (text !== '') {
-                        create(text);
-                        SongStore.emitChange();
+                        this.create(text);
+                        this.emitChange();
                     }
                     break;
 
                 case SongConstants.SONG_DESTROY:
-                    destroy(action.id);
-                    SongStore.emitChange();
+                    this.destroy(action.id);
+                    this.emitChange();
                     break;
             }
 

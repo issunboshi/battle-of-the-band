@@ -2,6 +2,8 @@ import React from 'react';
 
 import getRandomInt from 'helpers/getRandomInt';
 
+import SongActions from 'modules/actions/SongActions';
+
 class Song extends React.Component {
 
     constructor(props) {
@@ -11,14 +13,7 @@ class Song extends React.Component {
         this.state = {
         };
 
-    }
-
-    handleSelection(event) {
-        this.setState({selected: !this.state.selected});
-    }
-
-    render () {
-        let key;
+        this.key;
 
         if (this.props.raw.mbid) {
             key = this.props.raw.mbid;
@@ -26,20 +21,21 @@ class Song extends React.Component {
             key = getRandomInt(5, 20000) + '_' + getRandomInt(5, 30700);
         }
 
-        if(!this.state.selected) {
+    }
 
-            return (
-                <li className="song_listing__item" key={key}>
-                    <div className="song__wrapper" onClick={this.handleSelection.bind(this)}>
-                        <h2 className="song__title">{this.props.raw.name}</h2>
-                    </div>
-                </li>
-            );
-        }
+    handleSelection(event) {
+        SongActions.updateSelected(this);
+    }
 
-        else {
-            return null;
-        }
+    render () {
+
+        return (
+            <li className="song_listing__item" key={this.key}>
+                <div className="song__wrapper" onClick={this.handleSelection.bind(this)}>
+                    <h2 className="song__title">{this.props.raw.name}</h2>
+                </div>
+            </li>
+        );
 
     }
 
