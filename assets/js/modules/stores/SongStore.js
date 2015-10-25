@@ -10,7 +10,8 @@ class SongStore extends Events.EventEmitter {
         this.songs = {};
         this.CHANGE_EVENT = 'change';
 
-        return AppDispatcher.register((payload) => {
+        // Register our callbacks with the dispatcher, and retrieve our dispatcherIndex
+        this.dispatcherIndex = AppDispatcher.register((payload) => {
             var action = payload.action,
                 text;
 
@@ -28,7 +29,8 @@ class SongStore extends Events.EventEmitter {
             }
 
             return true; // No errors. Needed by promise in Dispatcher.
-        })
+        });
+
     }
 
     create (song) {
