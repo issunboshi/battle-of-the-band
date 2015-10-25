@@ -1,5 +1,8 @@
 import keyMirror from 'keymirror';
 
-export default keyMirror({
-    TODO_UPDATE_TEXT: null
+var SongConstants;
+
+export default SongConstants = keyMirror({
+    SONG_CREATE: null,
+    SONG_UPDATE: null
 });

@@ -13,18 +13,20 @@ class Song extends React.Component {
         this.state = {
         };
 
+        this.SongActions = new SongActions;
+
         this.key;
 
         if (this.props.raw.mbid) {
-            key = this.props.raw.mbid;
+            this.key = this.props.raw.mbid;
         } else {
-            key = getRandomInt(5, 20000) + '_' + getRandomInt(5, 30700);
+            this.key = getRandomInt(5, 20000) + '_' + getRandomInt(5, 30700);
         }
 
     }
 
     handleSelection(event) {
-        SongActions.updateSelected(this);
+        this.SongActions.updateSong(this);
     }
 
     render () {

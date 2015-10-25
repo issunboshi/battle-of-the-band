@@ -5,7 +5,6 @@ import SongConstants from 'modules/Constants/SongConstants';
 
 class SongStore extends Events.EventEmitter {
     constructor () {
-
         super();
 
         this.songs = {};
@@ -22,8 +21,8 @@ class SongStore extends Events.EventEmitter {
         };
     }
 
-    destroy (id) {
-        delete this.songs[id];
+    update (id, song) {
+        this.songs[id] = song;
     }
 
     getAll () {
@@ -55,14 +54,11 @@ class SongStore extends Events.EventEmitter {
 
             switch (action.actionType) {
                 case SongConstants.SONG_CREATE:
-                    text = action.text.trim();
-                    if (text !== '') {
-                        this.create(text);
-                        this.emitChange();
-                    }
+                    this.create(song);
+                    this.emitChange();
                     break;
 
-                case SongConstants.SONG_DESTROY:
+                case SongConstants.SONG_UPDATE:
                     this.destroy(action.id);
                     this.emitChange();
                     break;
