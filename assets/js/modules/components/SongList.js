@@ -14,6 +14,10 @@ class SongList extends React.Component {
 
     render() {
 
+        if (this.props.songs === undefined) {
+            return null;
+        }
+
         var songs = this.props.raw.toptracks.track.map((song, index) => {
             return <Song key={Math.random()} raw={song} />
         });

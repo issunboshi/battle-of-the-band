@@ -9,15 +9,36 @@ class SongStore extends Events.EventEmitter {
 
         this.songs = {};
         this.CHANGE_EVENT = 'change';
+
+        return AppDispatcher.register((payload) => {
+            var action = payload.action,
+                text;
+
+            switch (action.actionType) {
+                case SongConstants.SONG_CREATE:
+                    this.create(song);
+                    console.log(song);
+                    this.emitChange();
+                    break;
+
+                case SongConstants.SONG_UPDATE:
+                    this.update(song.id);
+                    this.emitChange();
+                    break;
+            }
+
+            return true; // No errors. Needed by promise in Dispatcher.
+        })
     }
 
-    create (object) {
+    create (song) {
         // Using the current timestamp in place of a real id.
         var id = Date.now();
+        console.log(this.songs);
 
         this.songs[id] = {
-            id: id,
-            data: object
+            id: song.mbid,
+            data: song
         };
     }
 
@@ -45,27 +66,6 @@ class SongStore extends Events.EventEmitter {
     */
     removeChangeListener (callback) {
         this.removeListener(this.CHANGE_EVENT, callback);
-    }
-
-    dispatcherIndex() {
-        return AppDispatcher.register((payload) => {
-            var action = payload.action,
-                text;
-
-            switch (action.actionType) {
-                case SongConstants.SONG_CREATE:
-                    this.create(song);
-                    this.emitChange();
-                    break;
-
-                case SongConstants.SONG_UPDATE:
-                    this.destroy(action.id);
-                    this.emitChange();
-                    break;
-            }
-
-            return true; // No errors. Needed by promise in Dispatcher.
-        })
     }
 }
 

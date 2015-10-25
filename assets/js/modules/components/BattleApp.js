@@ -4,12 +4,14 @@ import SongStore from 'modules/stores/SongStore';
 
 import ArtistForm from 'modules/components/ArtistForm';
 
+import SongList from 'modules/components/SongList';
+
 class BattleApp extends React.Component {
 
     constructor () {
         super();
 
-        this.Songs = new SongStore();
+        this.SongStore = new SongStore();
 
         this.state = {
             songs: this.getSongState()
@@ -17,15 +19,15 @@ class BattleApp extends React.Component {
     }
 
     getSongState() {
-        return this.Songs.getAll();
+        return this.SongStore.getAll();
     }
 
     componentDidMount () {
-        this.Songs.addChangeListener(this.handleChange);
+        this.SongStore.addChangeListener(this.handleChange);
     }
 
     componentWillUnmount () {
-        this.Songs.removeChangeListener(this.handleChange);
+        this.SongStore.removeChangeListener(this.handleChange);
     }
 
     handleChange () {
@@ -34,7 +36,10 @@ class BattleApp extends React.Component {
 
     render () {
         return (
-            <ArtistForm allSongs={this.state.songs} selectedSongs={this.state.songs} unSelectedSongs={this.state.songs} />
+            <div>
+                <ArtistForm allSongs={this.state.songs} selectedSongs={this.state.songs} unSelectedSongs={this.state.songs} />
+                <SongList raw={this.state.songs} />
+            </div>
         )
     }
 }

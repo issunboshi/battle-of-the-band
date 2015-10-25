@@ -6,17 +6,17 @@ class SongActions {
     constructor() {
     }
 
-    createSong () {
+    createSong (object) {
         AppDispatcher.dispatch({
-            actionType: SongConstants.TODO_CREATE,
-            song: song
+            actionType: SongConstants.SONG_CREATE,
+            song: object
         })
     }
 
-    updateSong (song) {
+    updateSong (object) {
         AppDispatcher.dispatch({
-            actionType: SongConstants.TODO_UPDATE,
-            song: song
+            actionType: SongConstants.SONG_UPDATE,
+            song: object
         })
     }
 }
