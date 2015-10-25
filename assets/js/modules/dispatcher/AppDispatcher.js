@@ -1,3 +1,7 @@
 import flux from 'flux';
 
-export default new flux.Dispatcher();
+const appDispatcher = new flux.Dispatcher({
+    logLevel: 'ALL'
+});
+
+export default appDispatcher;

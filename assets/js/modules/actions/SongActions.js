@@ -1,4 +1,4 @@
-import AppDispatcher from 'modules/dispatcher/AppDispatcher';
+import appDispatcher from 'modules/dispatcher/AppDispatcher';
 import SongConstants from 'modules/constants/SongConstants';
 
 class SongActions {
@@ -7,14 +7,14 @@ class SongActions {
     }
 
     createSong (object) {
-        AppDispatcher.dispatch({
+        appDispatcher.dispatch({
             actionType: SongConstants.SONG_CREATE,
             song: object
         })
     }
 
     updateSong (object) {
-        AppDispatcher.dispatch({
+        appDispatcher.dispatch({
             actionType: SongConstants.SONG_UPDATE,
             song: object
         })

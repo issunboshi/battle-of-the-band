@@ -1,42 +1,21 @@
 import Events from 'events';
 
-import AppDispatcher from 'modules/Dispatcher/AppDispatcher';
+import appDispatcher from 'modules/Dispatcher/AppDispatcher';
 import SongConstants from 'modules/Constants/SongConstants';
 
+const CHANGE_EVENT = 'change';
+
 class SongStore extends Events.EventEmitter {
-    constructor () {
+
+    constructor() {
         super();
 
         this.songs = {};
-        this.CHANGE_EVENT = 'change';
-
-        // Register our callbacks with the dispatcher, and retrieve our dispatcherIndex
-        this.dispatcherIndex = AppDispatcher.register((payload) => {
-            var action = payload.action,
-                text;
-
-            switch (action.actionType) {
-                case SongConstants.SONG_CREATE:
-                    this.create(song);
-                    console.log(song);
-                    this.emitChange();
-                    break;
-
-                case SongConstants.SONG_UPDATE:
-                    this.update(song.id);
-                    this.emitChange();
-                    break;
-            }
-
-            return true; // No errors. Needed by promise in Dispatcher.
-        });
-
     }
 
     create (song) {
         // Using the current timestamp in place of a real id.
         var id = Date.now();
-        console.log(this.songs);
 
         this.songs[id] = {
             id: song.mbid,
@@ -53,22 +32,40 @@ class SongStore extends Events.EventEmitter {
     }
 
     emitChange () {
-        this.emit(this.CHANGE_EVENT);
+        this.emit(CHANGE_EVENT);
     }
 
     /**
     * @param {function} callback
     */
     addChangeListener (callback) {
-        this.on(this.CHANGE_EVENT, callback);
+        this.on(CHANGE_EVENT, callback);
     }
 
     /**
     * @param {function} callback
     */
     removeChangeListener (callback) {
-        this.removeListener(this.CHANGE_EVENT, callback);
+        this.removeListener(CHANGE_EVENT, callback);
     }
+
 }
 
-export default SongStore;
+const songStore = new SongStore();
+
+songStore.dispatchToken = appDispatcher.register((action) => {
+    switch (action.type) {
+
+        case SongConstants.SONG_CREATE:
+            this.create(song);
+            this.emitChange();
+            break;
+
+        case SongConstants.SONG_UPDATE:
+            this.update(song.id);
+            this.emitChange();
+            break;
+    }
+});
+
+export default songStore;
