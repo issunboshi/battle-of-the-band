@@ -1,7 +1,6 @@
 import React from 'react';
 
 import forBand from 'helpers/forBand';
-
 import SongActions from 'modules/actions/SongActions';
 
 class ArtistForm extends React.Component {
@@ -9,8 +8,6 @@ class ArtistForm extends React.Component {
     constructor(props) {
 
         super(props);
-
-        this.SongActions = new SongActions();
 
         this.state = {
             artist: '',
@@ -27,7 +24,7 @@ class ArtistForm extends React.Component {
         .then((songs) => {
             if (songs) {
                 songs.toptracks.track.map((song, index) => {
-                    this.SongActions.createSong(song);
+                    SongActions.createSong(song);
                 });
             }
         })

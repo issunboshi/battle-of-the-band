@@ -1,6 +1,6 @@
 import React from 'react';
 
-import songStoreInstance from 'modules/stores/SongStore';
+import SongStore from 'modules/stores/SongStore';
 
 import ArtistForm from 'modules/components/ArtistForm';
 
@@ -12,24 +12,20 @@ class BattleApp extends React.Component {
         super();
 
         this.state = {
-            songs: this.getSongState()
+            songs: SongStore.getState()
         }
     }
 
-    getSongState() {
-        return songStoreInstance.getAll();
-    }
-
     componentDidMount () {
-        songStoreInstance.addChangeListener(this.handleChange);
+        SongStore.listen(this.onChange);
     }
 
     componentWillUnmount () {
-        songStoreInstance.removeChangeListener(this.handleChange);
+        SongStore.unlisten(this.handleChange);
     }
 
-    handleChange () {
-        this.setState(this.getSongState());
+    onChange (state) {
+        this.state.songs = SongStore.getState;
     }
 
     render () {
