@@ -25,9 +25,9 @@ plugins.argv = require('yargs').argv;
 
 var basePath      = "./";
 
-cssSrcDir       = basePath + 'sass',
+cssSrcDir       = basePath + 'css/src',
 cssSrcFiles     = cssSrcDir + '/**/*.scss',
-cssDestDir      = basePath + 'css',
+cssDestDir      = basePath + 'css/dist',
 cssDestFiles    = cssDestDir + '/*.css',
 
 jsSrcDir      = basePath + 'js',

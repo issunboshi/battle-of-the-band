@@ -22,7 +22,7 @@ class SongList extends React.Component {
             });
         }
 
-        return <ol className="song_listing">{songs}</ol>
+        return <ol className="bracket">{songs}</ol>
 
     }
 

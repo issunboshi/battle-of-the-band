@@ -2,10 +2,7 @@ import alt from 'app/alt';
 
 import Events from 'events';
 
-import SongConstants from 'modules/constants/SongConstants';
 import SongActions from 'modules/actions/SongActions';
-
-const CHANGE_EVENT = 'change';
 
 class SongStore {
 
@@ -19,7 +16,6 @@ class SongStore {
 
     create (songs) {
         this.songs = songs.object;
-
     }
 
     update (id, song) {

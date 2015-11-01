@@ -4,7 +4,7 @@ import SongStore from 'modules/stores/SongStore';
 
 import ArtistForm from 'modules/components/ArtistForm';
 
-import SongList from 'modules/components/SongList';
+import Round from 'modules/components/Round';
 
 function getSongsState() {
     return {
@@ -36,8 +36,8 @@ class BattleApp extends React.Component {
     render () {
         return (
             <div>
-                <ArtistForm />
-                <SongList raw={this.state.songs} />
+                <ArtistForm raw={this.state.songs} />
+                <Round raw={this.state.songs} />
             </div>
         )
     }
