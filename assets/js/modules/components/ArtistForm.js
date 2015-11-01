@@ -1,8 +1,7 @@
 import React from 'react';
 
-import forBand from 'modules/components/forBand';
-
-import SongList from 'modules/components/SongList';
+import forBand from 'helpers/forBand';
+import SongActions from 'modules/actions/SongActions';
 
 class ArtistForm extends React.Component {
 
@@ -23,7 +22,9 @@ class ArtistForm extends React.Component {
 
         forBand(artist)
         .then((songs) => {
-            this.setState({songs});
+            if (songs) {
+                SongActions.createSongs(songs.toptracks.track);
+            }
         })
 
     }
@@ -41,13 +42,10 @@ class ArtistForm extends React.Component {
     render () {
 
         return (
-            <div>
-                <form>
-                    <label htmlFor="artist">El artist</label>
-                    <input type="text" name="artist" id="artist" value={this.state.artist} onChange={this.handleChange.bind(this)} />
-                </form>
-                <SongList raw={this.state.songs} />
-            </div>
+            <form>
+                <label htmlFor="artist">El artist</label>
+                <input type="text" name="artist" id="artist" value={this.state.artist} onChange={this.handleChange.bind(this)} />
+            </form>
         );
 
     }

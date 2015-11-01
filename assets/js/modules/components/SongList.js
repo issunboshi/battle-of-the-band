@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Song from 'modules/components/Song';
 
 class SongList extends React.Component {
@@ -13,10 +14,13 @@ class SongList extends React.Component {
 
     render() {
 
-        var songs = this.props.raw.toptracks.track.map((song, index) => {
-            return <Song raw={song} />
-
-        });
+        if (Object.keys(this.props.raw).length === 0) {
+            return null;
+        } else {
+            var songs = this.props.raw.map((song, index) => {
+                return <Song key={Math.random()} raw={song} />
+            });
+        }
 
         return <ol className="song_listing">{songs}</ol>
 
