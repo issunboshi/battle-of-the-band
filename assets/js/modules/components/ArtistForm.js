@@ -23,9 +23,7 @@ class ArtistForm extends React.Component {
         forBand(artist)
         .then((songs) => {
             if (songs) {
-                songs.toptracks.track.map((song, index) => {
-                    SongActions.createSong(song);
-                });
+                SongActions.createSongs(songs.toptracks.track);
             }
         })
 

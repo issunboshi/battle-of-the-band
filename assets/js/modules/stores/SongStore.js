@@ -13,18 +13,13 @@ class SongStore {
         this.songs = {};
 
         this.bindListeners({
-            create: SongActions.CREATE_SONG
+            create: SongActions.CREATE_SONGS
         });
     }
 
-    create (song) {
-        // Using the current timestamp in place of a real id.
-        var id = Date.now();
+    create (songs) {
+        this.songs = songs.object;
 
-        this.songs[id] = {
-            id: song.mbid,
-            data: song
-        };
     }
 
     update (id, song) {

@@ -6,14 +6,19 @@ import ArtistForm from 'modules/components/ArtistForm';
 
 import SongList from 'modules/components/SongList';
 
+function getSongsState() {
+    return {
+        songs: SongStore.getState().songs
+    }
+}
+
 class BattleApp extends React.Component {
 
     constructor () {
         super();
 
-        this.state = {
-            songs: SongStore.getState()
-        }
+        this.state = getSongsState();
+        this.onChange = this.onChange.bind(this);
     }
 
     componentDidMount () {
@@ -25,13 +30,13 @@ class BattleApp extends React.Component {
     }
 
     onChange (state) {
-        this.state.songs = SongStore.getState;
+        this.setState(state);
     }
 
     render () {
         return (
             <div>
-                <ArtistForm allSongs={this.state.songs} selectedSongs={this.state.songs} unSelectedSongs={this.state.songs} />
+                <ArtistForm />
                 <SongList raw={this.state.songs} />
             </div>
         )

@@ -7,10 +7,9 @@ class SongActions {
     constructor() {
     }
 
-    createSong (object) {
+    createSongs (object) {
         this.dispatch({
-            actionType: SongConstants.SONG_CREATE,
-            song: object
+            object
         })
     }
 
