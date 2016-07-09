@@ -25,6 +25,7 @@ System.config({
     "flux": "npm:flux@2.1.1",
     "handlebars": "github:components/handlebars.js@3.0.3",
     "jeromegn/Backbone.localStorage": "github:jeromegn/Backbone.localStorage@1.1.16",
+    "json-loader": "npm:json-loader@0.5.4",
     "keymirror": "npm:keymirror@0.1.1",
     "lodash": "npm:lodash@3.10.1",
     "react": "npm:react@0.14.0",
@@ -206,4 +207,3 @@ System.config({
     }
   }
 });
-
