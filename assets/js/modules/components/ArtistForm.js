@@ -40,7 +40,7 @@ class ArtistForm extends React.Component {
     }
 
     render () {
-        if (Object.keys(this.props.raw).length > 0) {
+        if (Object.keys(this.props.songs).length > 0) {
             return null;
         }
         return (

@@ -14,13 +14,13 @@ class Round extends React.Component {
 
     render() {
 
-        if (Object.keys(this.props.raw).length === 0) {
+        if (Object.keys(this.props.songs).length === 0) {
             return null;
         } else {
             let brackets = [];
 
-            while (Object.keys(this.props.raw).length > 0) {
-                brackets.push(<SongList raw={this.props.raw.splice(0, 2)} />)
+            while (Object.keys(this.props.songs).length > 0) {
+                brackets.push(<SongList key={Object.keys(this.props.songs).length} songs={this.props.songs.splice(0, 2)} />)
             }
 
             return (

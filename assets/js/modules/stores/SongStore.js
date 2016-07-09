@@ -7,10 +7,13 @@ import SongActions from 'modules/actions/SongActions';
 class SongStore {
 
     constructor() {
-        this.songs = {};
+        this.songs      = {};
+        this.songBuffer = [];
 
         this.bindListeners({
-            create: SongActions.CREATE_SONGS
+            create:         SongActions.CREATE_SONGS,
+            addToNextRound: SongActions.ADD_TO_NEXT_ROUND,
+            getAll:         SongActions.GET_ALL
         });
     }
 
@@ -18,8 +21,8 @@ class SongStore {
         this.songs = songs.object;
     }
 
-    update (id, song) {
-        this.songs[id] = song;
+    addToNextRound (song) {
+        this.songBuffer.push(song);
     }
 
     getAll () {

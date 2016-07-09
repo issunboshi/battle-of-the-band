@@ -13,8 +13,8 @@ class Song extends React.Component {
         this.state = {
         };
 
-        if (this.props.raw.mbid) {
-            this.key = this.props.raw.mbid;
+        if (this.props.song.mbid) {
+            this.key = this.props.song.mbid;
         } else {
             this.key = getRandomInt(5, 20000) + '_' + getRandomInt(5, 30700);
         }
@@ -24,16 +24,17 @@ class Song extends React.Component {
     }
 
     handleSelection(event) {
-        SongActions.updateSong(this);
+        SongActions.addToNextRound(this);
+
     }
 
     render () {
 
         return (
             <li className="song_listing__item" key={this.key}>
-                <div className="song__wrapper" onClick={this.handleSelection.bind(this)}>
-                    <h2 className="song__title">{this.props.raw.name}</h2>
-                </div>
+                <button className="song__wrap" onClick={this.handleSelection}>
+                    {this.props.song.name}
+                </button>
             </li>
         );
 

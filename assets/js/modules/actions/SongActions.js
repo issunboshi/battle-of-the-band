@@ -13,10 +13,15 @@ class SongActions {
         })
     }
 
-    updateSong (object) {
+    addToNextRound (object) {
         this.dispatch({
-            actionType: SongConstants.SONG_UPDATE,
-            song: object
+            object
+        })
+    }
+
+    getAll (object) {
+        this.dispatch({
+            object
         })
     }
 }

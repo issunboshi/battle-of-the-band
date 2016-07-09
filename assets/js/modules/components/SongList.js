@@ -14,11 +14,11 @@ class SongList extends React.Component {
 
     render() {
 
-        if (Object.keys(this.props.raw).length === 0) {
+        if (Object.keys(this.props.songs).length === 0) {
             return null;
         } else {
-            var songs = this.props.raw.map((song, index) => {
-                return <Song key={Math.random()} raw={song} />
+            var songs = this.props.songs.map((song, index) => {
+                return <Song key={Math.random()} song={song} />
             });
         }
 

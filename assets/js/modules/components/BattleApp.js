@@ -17,8 +17,9 @@ class BattleApp extends React.Component {
     constructor () {
         super();
 
-        this.state = getSongsState();
-        this.onChange = this.onChange.bind(this);
+        this.state          = getSongsState();
+        this.onChange       = this.onChange.bind(this);
+        this.nextRoundSize  = 0;
     }
 
     componentDidMount () {
@@ -36,8 +37,8 @@ class BattleApp extends React.Component {
     render () {
         return (
             <div>
-                <ArtistForm raw={this.state.songs} />
-                <Round raw={this.state.songs} />
+                <ArtistForm songs={this.state.songs} />
+                <Round songs={this.state.songs} roundLength={this.state.songs.length / 2} />
             </div>
         )
     }
