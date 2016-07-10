@@ -4,5 +4,6 @@ var SongConstants;
 
 export default SongConstants = keyMirror({
     SONG_CREATE: null,
-    SONG_UPDATE: null
+    SONG_ADD_TO_NEXT_ROUND: null,
+    SONG_GET_ALL: null
 });

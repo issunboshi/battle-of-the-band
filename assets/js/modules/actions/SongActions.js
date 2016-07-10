@@ -4,25 +4,28 @@ import SongConstants from 'modules/constants/SongConstants';
 
 class SongActions {
 
-    constructor() {
-    }
+    constructor() {}
 
     createSongs (object) {
+
         this.dispatch({
             object
         })
+
     }
 
     addToNextRound (object) {
+
         this.dispatch({
             object
         })
+
     }
 
-    getAll (object) {
-        this.dispatch({
-            object
-        })
+    getAll () {
+
+        this.dispatch()
+
     }
 }
 

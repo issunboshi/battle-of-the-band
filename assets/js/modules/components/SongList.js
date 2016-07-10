@@ -8,18 +8,24 @@ class SongList extends React.Component {
 
         super(props);
 
-        this.state = {
-        };
+        this.state = {};
+
     }
 
     render() {
 
         if (Object.keys(this.props.songs).length === 0) {
+
             return null;
+
         } else {
+
             var songs = this.props.songs.map((song, index) => {
+
                 return <Song key={Math.random()} song={song} />
+
             });
+
         }
 
         return <ol className="bracket">{songs}</ol>

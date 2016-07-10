@@ -7,26 +7,35 @@ import SongActions from 'modules/actions/SongActions';
 class SongStore {
 
     constructor() {
+
         this.songs      = {};
         this.songBuffer = [];
 
+        // Ensure we listen for actions
         this.bindListeners({
             create:         SongActions.CREATE_SONGS,
             addToNextRound: SongActions.ADD_TO_NEXT_ROUND,
             getAll:         SongActions.GET_ALL
         });
+
     }
 
     create (songs) {
+
         this.songs = songs.object;
+
     }
 
     addToNextRound (song) {
+
         this.songBuffer.push(song);
+
     }
 
     getAll () {
+
         return this.songs;
+
     }
 
 }

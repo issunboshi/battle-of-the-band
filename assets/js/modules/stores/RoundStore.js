@@ -7,6 +7,7 @@ import RoundActions from 'modules/actions/RoundActions';
 class RoundStore {
 
     constructor() {
+
         this.rounds      = [];
 
         // Ensure we listen for actions
@@ -16,22 +17,31 @@ class RoundStore {
             get:            RoundActions.GET,
             getAll:         RoundActions.GET_ALL
         });
+
     }
 
     create (songs) {
+
         this.rounds = songs.object;
+
     }
 
     addTo (id, songs) {
+
         this.rounds[id].push(songs);
+
     }
 
     get (id) {
+
         return this.rounds[id];
+
     }
 
     getAll () {
+
         return this.rounds;
+
     }
 
 }
