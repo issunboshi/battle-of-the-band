@@ -6,9 +6,10 @@ function forBand(artist) {
 
         return fetch(url).then(response => response.json());
     } else {
-        return Promise.reject(new Error('artist or apiKeys.lastFM not defined')).then(function(error) {
+        return Promise.reject(new Error('artist or apiKeys.lastFM not defined'))
+        .then(function(error) {
         }, function(error) {
-          console.log(error); // Stacktrace
+            console.log(error); // Stacktrace
         });
     }
 }

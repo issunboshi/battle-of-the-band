@@ -40,9 +40,13 @@ class ArtistForm extends React.Component {
     }
 
     render () {
+
         if (Object.keys(this.props.songs).length > 0) {
+
             return null;
+
         }
+
         return (
             <form>
                 <label htmlFor="artist">El artist</label>

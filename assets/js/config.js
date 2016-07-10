@@ -25,6 +25,7 @@ System.config({
     "flux": "npm:flux@2.1.1",
     "handlebars": "github:components/handlebars.js@3.0.3",
     "jeromegn/Backbone.localStorage": "github:jeromegn/Backbone.localStorage@1.1.16",
+    "json": "github:systemjs/plugin-json@0.1.2",
     "json-loader": "npm:json-loader@0.5.4",
     "keymirror": "npm:keymirror@0.1.1",
     "lodash": "npm:lodash@3.10.1",
@@ -81,13 +82,13 @@ System.config({
     "npm:core-js@0.9.13": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+      "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
     "npm:core-js@1.2.3": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+      "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
     "npm:core-util-is@1.0.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
@@ -199,7 +200,7 @@ System.config({
       "stream": "github:jspm/nodelibs-stream@0.1.0"
     },
     "npm:ua-parser-js@0.7.9": {
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+      "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
     "npm:util@0.10.3": {
       "inherits": "npm:inherits@2.0.1",
@@ -207,3 +208,4 @@ System.config({
     }
   }
 });
+

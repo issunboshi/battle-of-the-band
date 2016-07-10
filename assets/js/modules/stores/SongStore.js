@@ -10,6 +10,7 @@ class SongStore {
         this.songs      = {};
         this.songBuffer = [];
 
+        // Ensure we listen for actions
         this.bindListeners({
             create:         SongActions.CREATE_SONGS,
             addToNextRound: SongActions.ADD_TO_NEXT_ROUND,

@@ -14,9 +14,13 @@ class Song extends React.Component {
         };
 
         if (this.props.song.mbid) {
+
             this.key = this.props.song.mbid;
+
         } else {
+
             this.key = getRandomInt(5, 20000) + '_' + getRandomInt(5, 30700);
+
         }
 
         this.handleSelection = this.handleSelection.bind(this);
@@ -24,6 +28,7 @@ class Song extends React.Component {
     }
 
     handleSelection(event) {
+
         SongActions.addToNextRound(this);
 
     }
